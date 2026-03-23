@@ -1,0 +1,125 @@
+
+
+# 🔥 **1. Install Pipenv (if not installed)**
+
+In your terminal:
+
+```bash
+pip install pipenv
+```
+
+---
+
+# 🔥 **2. Navigate to your project folder**
+
+```bash
+cd path/to/your/project
+```
+
+This folder must contain:
+
+- `Pipfile`
+- `Pipfile.lock`
+- `app.py`
+- your model file
+- templates/static (if Flask)
+
+---
+
+# 🔥 **3. Create + Install the Pipenv environment**
+
+```bash
+pipenv install --deploy
+```
+
+This will:
+
+- create a virtual environment  
+- install exactly what’s in your `Pipfile.lock`  
+- guarantee reproducibility  
+
+If you want to allow updates:
+
+```bash
+pipenv install
+```
+
+---
+
+# 🔥 **4. Activate the virtual environment**
+
+```bash
+pipenv shell
+```
+
+Now your terminal is inside the Pipenv environment.
+
+You’ll see something like:
+
+```
+(solarproj-3.10) $
+```
+
+---
+
+# 🔥 **5. Run your project**
+
+### **If you’re running Flask directly:**
+
+```bash
+pipenv run python app.py
+```
+
+or inside the shell:
+
+```bash
+python app.py
+```
+
+---
+
+### **If you’re running with Gunicorn (recommended for deployment):**
+
+```bash
+pipenv run gunicorn -b 0.0.0.0:9696 app:app
+```
+
+This matches your Docker command.
+
+---
+
+# 🔥 **6. Test your deployed app**
+
+Open your browser:
+
+```
+http://localhost:9696
+```
+
+Or test your `/predict` endpoint with curl or Postman.
+
+---
+
+# ⭐ **7. (Optional) Add the environment to Jupyter Notebook**
+
+If you want to run your notebook using the Pipenv environment:
+
+```bash
+pipenv run python -m ipykernel install --user --name=solarenv
+```
+
+Then in Jupyter:
+
+**Kernel → Change Kernel → solarenv**
+
+---
+
+# 🎯 **Summary: How to run your deployed project on Pipenv**
+
+1. `pipenv install --deploy`  
+2. `pipenv shell`  
+3. `pipenv run gunicorn -b 0.0.0.0:9696 app:app`  
+4. Visit `localhost:9696`
+
+Your project is now running inside a clean, isolated Pipenv virtual environment.
+

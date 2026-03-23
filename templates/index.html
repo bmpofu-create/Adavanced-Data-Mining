@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Power Prediction</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f0f2f5; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .container { background-color: white; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); width: 400px; }
+        h2 { text-align: center; color: #333; }
+        input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+        button { width: 100%; padding: 10px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; }
+        button:hover { background-color: #45a049; }
+        .result { margin-top: 20px; text-align: center; font-weight: bold; color: #333; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Solar Power Predictor</h2>
+        <form action="/predict" method="post">
+            <label>Ambient Temperature</label>
+            <input type="text" name="ambient_temp" placeholder="e.g. 25.0" required="required" />
+            
+            <label>Module Temperature</label>
+            <input type="text" name="module_temp" placeholder="e.g. 40.5" required="required" />
+            
+            <label>Irradiation</label>
+            <input type="text" name="irradiation" placeholder="e.g. 0.5" required="required" />
+            
+            <label>Hour (0-23)</label>
+            <input type="text" name="hour" placeholder="e.g. 12" required="required" />
+
+            <label>Minute (0-59)</label>
+            <input type="text" name="minute" placeholder="e.g. 30" required="required" />
+
+            <label>Month (1-12)</label>
+            <input type="text" name="month" placeholder="e.g. 6" required="required" />
+
+            <label>Day of Year (1-365)</label>
+            <input type="text" name="day_of_year" placeholder="e.g. 150" required="required" />
+
+            <button type="submit">Predict Power</button>
+        </form>
+        <div class="result">
+            {{ prediction_text }}
+        </div>
+    </div>
+</body>
+</html>
