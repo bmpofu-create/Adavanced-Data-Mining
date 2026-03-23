@@ -6,11 +6,11 @@
 This project develops a machine learning pipeline to **predict AC Power output** for a solar photovoltaic (PV) plant using high‑resolution operational and weather sensor data. Solar energy production is highly dependent on environmental conditions, making accurate forecasting essential for grid stability, maintenance planning, and economic optimization.
 
 This repository includes the full workflow:  
-✔ Data preprocessing  
-✔ Exploratory Data Analysis (EDA)  
-✔ Model training & hyperparameter tuning  
-✔ Deep learning experiments  
-✔ Deployment using Flask + Docker  
+ Data preprocessing  
+ Exploratory Data Analysis (EDA)  
+ Model training & hyperparameter tuning  
+ Deep learning experiments  
+ Deployment using Flask + Docker  
 
 ---
 
